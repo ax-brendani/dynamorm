@@ -17,7 +17,7 @@ if parse_version(marshmallow_version) >= parse_version("3.0.0a1"):
             if native:
                 data = cls().load(obj, partial=partial, unknown=EXCLUDE)
             else:
-                data = cls(partial=partial, unknown="EXCLUDE").dump(obj)
+                data = cls(partial=partial, unknown=EXCLUDE).dump(obj)
         except MarshmallowError as e:
             raise ValidationError(obj, cls.__name__, e)
         return data
